@@ -1,0 +1,22 @@
+GET http://127.0.0.1:8000/api/transactions/
+
+###
+POST http://127.0.0.1:8000/api/transactions/
+Content-Type: application/json
+
+{
+    "text" : "Salaire2",
+    "amount" : 2100.00
+} 
+###
+GET http://127.0.0.1:8000/api/transactions/68999d8b-1706-4184-afae-297499ab40d4/
+
+###
+DELETE http://127.0.0.1:8000/api/transactions/68999d8b-1706-4184-afae-297499ab40d4/
+###
+PATCH http://127.0.0.1:8000/api/transactions/9f8288b7-90f8-4cc9-9804-e2434ebc2c57/
+Content-Type: application/json
+
+{
+    "text" : "salaire_modifie"
+}
