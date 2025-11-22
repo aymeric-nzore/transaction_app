@@ -1,7 +1,13 @@
 import axios from "axios";
 
-const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL + "api/"
-})
+const baseURL =
+  (process.env.NEXT_PUBLIC_API_URL
+    ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "") // enlève le slash final si présent
+    : "http://127.0.0.1:8000") + "/api/"; // fallback local
 
-export default api
+const api = axios.create({
+  baseURL,
+});
+
+export default api;
+
