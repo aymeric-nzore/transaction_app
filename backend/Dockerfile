@@ -25,5 +25,5 @@ COPY . .
 # Exposer le port pour Render
 EXPOSE 8000
 
-# Commande pour lancer Django avec Gunicorn
-CMD ["gunicorn", "backend.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+# Exécuter les migrations, collecter les fichiers statiques puis démarrer gunicorn en liant à $PORT (port par défaut 8000)
+ENTRYPOINT ["/bin/sh","-c","python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn backend.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 3"]
