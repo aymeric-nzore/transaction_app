@@ -8,4 +8,4 @@ class Transaction(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.text}" ((self.amount))
+        return f"{self.text} ({self.amount})"
