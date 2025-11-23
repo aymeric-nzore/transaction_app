@@ -84,6 +84,7 @@ export default function Home() {
     amount.filter((a) => a < 0).reduce((acc, item) => acc + item, 0) || 0;
   const ratio =
     income > 0 ? Math.min((Math.abs(expense) / income) * 100, 100) : 0;
+    
   const formatDate = (dateString: string) => {
     const d = new Date(dateString);
     return d.toLocaleDateString("fr-FR", {
